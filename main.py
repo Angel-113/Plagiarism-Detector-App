@@ -2,7 +2,7 @@ from src import *
 from src.Detector import *
 
 def main() -> None:
-    det = Detector("", "")
+    print("Hello world\n")
     return
 
 if __name__ == '__main__':

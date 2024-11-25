@@ -15,7 +15,6 @@ class Detector:
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.__set_path__(path1, 1)
         self.__set_path__(path2, 2)
-        return
 
     def __encode__(self, path: str) -> Tensor | ndarray | list[Tensor]:
         try:
