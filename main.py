@@ -1,9 +1,12 @@
-from src import *
-from src.Detector import *
+from src.Detector import Detector
 
 def main() -> None:
-    print("Hello world\n")
-    return
+    detector = Detector(
+        "/home/angel/Downloads/Next Generation Malloc.pdf",
+        "/home/angel/Downloads/Dynamic Storage Allocation.pdf"
+    )
+    detector.encode_files()
+    print(detector.compare_embeddings())
 
 if __name__ == '__main__':
     main()
