@@ -3,9 +3,13 @@ from sentence_transformers import SentenceTransformer, util
 from numpy import ndarray
 from src.FileReader import read_file
 
+# paths for testing
+path1_t = "../file_tests/Dynamic Storage Allocation.pdf"
+path2_t = "../file_tests/Next Generation Malloc.pdf"
+
 class Detector:
 
-    def __init__(self, path1: str = None, path2: str = None):
+    def __init__(self, path1: str = path1_t, path2: str = path2_t):
         self.__model = SentenceTransformer('all-MiniLM-L6-v2')
         self.__embeddings1 = None
         self.__embeddings2 = None
