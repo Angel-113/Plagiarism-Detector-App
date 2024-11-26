@@ -1,6 +1,8 @@
 from PyPDF2 import PdfReader
+import docx
 import os
 
+#PDF
 def read_pdf(path: str) -> str:
     try:
         text = ""
@@ -11,6 +13,7 @@ def read_pdf(path: str) -> str:
     except FileNotFoundError or path is None:
         print("Can't open the file")
 
+#TXT
 def read_txt(path: str) -> str:
     try:
         text: str = ""
@@ -23,12 +26,24 @@ def read_txt(path: str) -> str:
     except FileNotFoundError or path is None:
         print("Can't open the file")
 
+#WORD
+def read_word(path: str) -> str:
+    try:
+        text: str = ""
+        doc = docx.Document(path)
+        text = [p.text for p in doc.paragraphs]
+        return text
+    except FileNotFoundError or path is None:
+        print("Can't open the file")
+
 def read_file(path: str) -> str:
     ext = os.path.splitext(path)[-1].lower()
     if ext == ".pdf":
         return read_pdf(path)
     elif ext == ".txt":
         return read_txt(path)
+    elif ext == ".docx":
+        return read_word(path)
     else:
         print("Extension not supported")
         return ""
