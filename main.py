@@ -1,9 +1,9 @@
-from src.Detector import Detector
+from src.app import App
 
 def main() -> None:
-    detector = Detector()
-    detector.encode_files()
-    print(detector.compare_embeddings())
+    app = App()
+    app.run()
+    return
 
-if __name__ == '__main__':
+if __name__ in {"__main__", "__mp_main__"}:
     main()
